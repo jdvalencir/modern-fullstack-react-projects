@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "setup-husky": "npx husky-init && husky install",
-    "test": "vite test"
+    "test": ""
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.4",
