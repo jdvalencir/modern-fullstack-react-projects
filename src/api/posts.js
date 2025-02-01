@@ -1,3 +1,5 @@
+console.warn(import.meta.env.VITE_BACKEND_URL)
+
 export async function getPosts(queryParams) {
   const res = await fetch(
     `${import.meta.env.VITE_BACKEND_URL}/posts?` +
