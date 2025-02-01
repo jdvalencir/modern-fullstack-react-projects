@@ -7,7 +7,7 @@ import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'backend'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
