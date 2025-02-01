@@ -8,6 +8,7 @@ export async function getPosts(queryParams) {
 }
 
 export async function createPost(post) {
+  console.warn(import.meta.env.VITE_BACKEND_URL)
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
