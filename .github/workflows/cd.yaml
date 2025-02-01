@@ -35,6 +35,10 @@ jobs:
           service: blog-backend
           image: ${{ secrets.DOCKERHUB_USERNAME }}/blog-backend:latest
           region: ${{ secrets.GOOGLECLOUD_REGION }}
+      - name: Test variable env
+        shell: bash
+        run: |
+          echo ${{  steps.deploy-backend.outputs.url }}
       - name: Build and push frontend image
         uses: docker/build-push-action@v4
         with:
@@ -42,7 +46,6 @@ jobs:
           file: ./Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/blog-frontend:latest
           build-args: VITE_BACKEND_URL=${{ steps.deploy-backend.outputs.url }}/api/v1
-
       - id: deploy-frontend
         name: Deploy frontend
         uses: google-github-actions/deploy-cloudrun@v1
