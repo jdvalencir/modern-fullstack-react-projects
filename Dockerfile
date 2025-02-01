@@ -1,6 +1,7 @@
 FROM node:20 AS build	
 
 ARG VITE_BACKEND_URL=https://blog-backend-763294657987.us-central1.run.app/api/v1
+ARG TIMESTAMP
 
 WORKDIR /build
 
