@@ -1,13 +1,17 @@
-import { ThemeProvider } from './ThemeProvider'
+import { AuthContextProvider } from '@/contexts/AuthContext';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { HelmetProvider } from 'react-helmet-async';
 
 export function Providers({ children }) {
     const queryClient = new QueryClient();
     return (
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider>
-                {children}
-            </ThemeProvider>
-        </QueryClientProvider>
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <AuthContextProvider>
+                    {children}
+                </AuthContextProvider>
+            </QueryClientProvider>
+        </HelmetProvider>
+
     )
 }

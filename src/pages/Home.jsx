@@ -5,6 +5,8 @@ import { PostFilter } from '../components/PostFilter'
 import { PostSorting } from '../components/PostSorting'
 import { getPosts } from '@/api/posts'
 import { useState } from 'react'
+import { Header } from '@/components/Header'
+import { Helmet } from 'react-helmet-async';
 
 export function Home() {
     const [author, setAuthor] = useState('')
@@ -18,12 +20,24 @@ export function Home() {
     const posts = postsQuery.data ?? []
 
     return (
-        <div style={{ padding: 8 }}>
+        <div className='p-8'>
+            <Helmet>
+                <title>Full-Stack React Blog</title>
+                <meta
+                    name='description'
+                    content='A blog full of articles about full-stack React development.'
+                />
+            </Helmet>
+            <Header />
             <CreatePost />
             <br />
             <hr />
             Filter by:
-            <PostFilter field='author' value={author} onChange={(value) => setAuthor(value)} />
+            <PostFilter
+                field='author'
+                value={author}
+                onChange={(value) => setAuthor(value)}
+            />
             <br />
             <PostSorting
                 fields={['createdAt', 'updatedAt']}

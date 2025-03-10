@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 
+process.loadEnvFile()
+
 export function initDatabase() {
   const DATABASE_URL = process.env.DATABASE_URL
 
